@@ -12,7 +12,7 @@ namespace StreamLurkerService
             _logger = logger;
         }
 
-        private static List<Streamer> oldStreamers;
+        private static List<Streamer> _oldStreamers = new();
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
@@ -25,14 +25,14 @@ namespace StreamLurkerService
                 }
 
                 var streamers = (await Handler.GetStreamers()).Streamers;
-                foreach (var streamer in streamers.Where(streamer => !oldStreamers.Contains(streamer)))
+                foreach (var streamer in streamers.Where(streamer => !_oldStreamers.Contains(streamer)))
                 {
                     Config.Driver.SwitchTo().NewWindow(WindowType.Window);
                     Config.Driver.Navigate().GoToUrl(streamer.StreamerUrl);
                     //todo: Add Window ID to List to close Streamers not available anymore
                 }
 
-                oldStreamers = streamers;
+                _oldStreamers = streamers;
 
                 foreach (var tab in Config.Driver.WindowHandles)
                 {
