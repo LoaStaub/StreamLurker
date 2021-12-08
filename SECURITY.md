@@ -2,15 +2,14 @@
 
 ## Supported Versions
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 2.x.x   | :x:                |
-| 2.0.x   | :white_check_mark: |
-| 1.x.x   | :x:                |
-| 1.0.x   | :white_check_mark: |
-| < 1.0   | :x:                |
-| beta    | :x:                |
-| alpha   | :x:                |
+| Version     | Supported          | Until        |
+| ----------- | ------------------ | ------------ |
+| x.x.x       | :white_check_mark: | newer Update |
+| 2.x.x       | :white_check_mark: | newer Update |
+| 1.x.x       | :white_check_mark: | newer Update |
+| < 1.0       | :x:                | :x:          |
+| x.x.beta.x  | :x:                | :x:          |
+| alpha       | :x:                | :x:          |
 
 ## Reporting a Vulnerability
 
