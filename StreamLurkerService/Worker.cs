@@ -37,7 +37,15 @@ namespace StreamLurkerService
                 foreach (var tab in Config.Driver.WindowHandles)
                 {
                     Config.Driver.SwitchTo().Window(tab);
-                    Config.Driver.FindElement(By.ClassName("ScCoreButton-sc-1qn4ixc-0 ScCoreButtonSuccess-sc-1qn4ixc-5 jGqsfG hERNRa"))?.Click();
+                    try
+                    {
+                        Config.Driver.FindElement(By.ClassName("ScCoreButton-sc-1qn4ixc-0 ScCoreButtonSuccess-sc-1qn4ixc-5 jGqsfG hERNRa"))?.Click();
+                    }
+                    catch
+                    {
+                        Console.WriteLine($"No Points to gather");
+                        throw;
+                    }
                 }
                 await Task.Delay(60000, stoppingToken);
             }

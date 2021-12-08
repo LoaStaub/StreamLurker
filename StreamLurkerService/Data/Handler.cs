@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
 
 namespace StreamLurkerService.Data
 {
@@ -30,6 +25,7 @@ namespace StreamLurkerService.Data
         private static void SetParameters()
         {
             var json = JsonSerializer.Serialize(new Parameters()); //todo: Async
+            Directory.CreateDirectory("Config");
             File.WriteAllText("Config/Parameters.json", json);
         }
 
