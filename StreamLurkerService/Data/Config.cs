@@ -8,7 +8,7 @@ namespace StreamLurkerService.Data
 {
     public static class Config
     {
-        public static IWebDriver Driver = null;
+        public static IWebDriver? Driver;
         public static Browsers Browser = Browsers.Firefox;
         public static Parameters Parameters = new Parameters();
 

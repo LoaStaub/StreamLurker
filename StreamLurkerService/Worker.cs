@@ -25,6 +25,11 @@ namespace StreamLurkerService
                     await Task.Delay(60000, stoppingToken);
                     continue;
                 }
+
+                if (Config.Driver == null)
+                {
+                    continue;
+                }
                 await Task.Delay(5000, stoppingToken);
                 if (firstStart)
                 {
@@ -66,7 +71,7 @@ namespace StreamLurkerService
                 }
                 await Task.Delay(60000, stoppingToken);
             }
-            Config.Driver.Quit();
+            //Config.Driver.Quit();
         }
     }
 }
