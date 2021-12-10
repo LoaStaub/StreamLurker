@@ -8,28 +8,32 @@ namespace StreamLurkerService.Data
 {
     public static class Config
     {
-        public static IWebDriver Driver = new FirefoxDriver();
+        public static IWebDriver Driver = null;
         public static Browsers Browser = Browsers.Firefox;
         public static Parameters Parameters = new Parameters();
 
         public static void ConfigureFirefoxDriver()
         {
             Driver = new FirefoxDriver();
+            Driver.Navigate().GoToUrl("https://www.twitch.tv/");
         }
 
         public static void ConfigureChromeDriver()
         {
             Driver = new ChromeDriver();
+            Driver.Navigate().GoToUrl("https://www.twitch.tv/");
         }
 
         public static void ConfigureOperaDriver()
         {
             Driver = new OperaDriver();
+            Driver.Navigate().GoToUrl("https://www.twitch.tv/");
         }
 
         public static void ConfigureEdgeDriver()
         {
             Driver = new EdgeDriver();
+            Driver.Navigate().GoToUrl("https://www.twitch.tv/");
         }
     }
 }

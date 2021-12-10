@@ -35,8 +35,11 @@ namespace StreamLurkerService.Data
             {
                 SetStreamers();
             }
-            return (await JsonSerializer.DeserializeAsync<StreamerList>(File.OpenRead("Config/Streamers.json")))!;
 
+            using (var json = File.OpenRead("Config/Streamers.json"))
+            {
+                return (await JsonSerializer.DeserializeAsync<StreamerList>(json))!;
+            }
         }
 
         public static void SetStreamers()
